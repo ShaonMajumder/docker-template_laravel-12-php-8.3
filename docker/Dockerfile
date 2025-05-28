@@ -32,6 +32,9 @@ COPY . .
 COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY ./docker/supervisord.conf /etc/supervisord.conf
 
+RUN if [ -n "$APP_ENV_FILE" ] && [ -f environment/$APP_ENV_FILE ]; then \
+    chmod 644 environment/$APP_ENV_FILE; \
+    fi
 
 RUN [ -d /var/www/html/storage ] && chown -R www-data:www-data /var/www/html/storage || echo "storage not found" && \
     [ -d /var/www/html/bootstrap/cache ] && chown -R www-data:www-data /var/www/html/bootstrap/cache || echo "cache not found" && \
