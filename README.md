@@ -5,7 +5,7 @@
 
 ## 🌟 Key Features
 
-✅ **Laravel 12** with **PHP 8.3** (latest stable)
+✅ **Laravel 12** with **PHP 8.3** (latest stable)  
 ✅ **Laravel Queue** with Redis  
 ✅ **FilamentPHP v3** – Admin panel made simple  
 ✅ **Soketi** – Self-hosted WebSocket server (Pusher-compatible)  
