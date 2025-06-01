@@ -14,7 +14,8 @@ RUN apt-get update && apt-get install -y \
     redis-server \
     supervisor \
     dos2unix \
-    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip sockets
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip sockets intl
 
 RUN pecl install redis && docker-php-ext-enable redis
 
