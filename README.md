@@ -84,4 +84,4 @@ MIT – use freely, contribute respectfully.
 **Shaon Majumder**  
 Senior Software Engineer | [robist.com](https://robist.com)  
 🔧 Backend Specialist | 💬 System Designer | 🧠 OSS Contributor  
-🔗 [LinkedIn](https://linkedin.com/in/shaonmajumder) | [GitHub](https://github.com/shaonmaj)
+🔗 [LinkedIn](https://linkedin.com/in/shaonmajumder) | [GitHub](https://github.com/shaonmajumder)
