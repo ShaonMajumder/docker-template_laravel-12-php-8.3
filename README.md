@@ -11,7 +11,7 @@
 ✅ **Soketi** – Self-hosted WebSocket server (Pusher-compatible)  
 ✅ **Redis** – Queue & caching  
 ✅ **MySQL 5.7** – Legacy-compatible relational DB  
-✅ **PostgreSQL 15** – Advanced relational DB support
+✅ **PostgreSQL 15** – Advanced relational DB support  
 ✅ **Node.js 18 LTS** – Asset compilation  
 ✅ **Supervisor** – Process control for queues and services  
 ✅ **Nginx** – Production-grade web server  
