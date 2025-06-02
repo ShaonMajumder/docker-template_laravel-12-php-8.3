@@ -1,5 +1,5 @@
 # 🚀 Laravel 12 + PHP 8.3 Docker Template  
-> **Modern Laravel Starter Kit** with **FilamentPHP**, **WebSockets (Soketi)**, **Redis**, **MySQL**, and clean Docker setup.
+> **Modern Laravel Starter Kit** with **FilamentPHP**, **WebSockets (Soketi)**, **Redis**, **MySQL**, **PostgreSQL** and clean Docker setup.
 
 ---
 
@@ -11,6 +11,7 @@
 ✅ **Soketi** – Self-hosted WebSocket server (Pusher-compatible)  
 ✅ **Redis** – Queue & caching  
 ✅ **MySQL 5.7** – Legacy-compatible relational DB  
+✅ **PostgreSQL 15** – Advanced relational DB support
 ✅ **Node.js 18 LTS** – Asset compilation  
 ✅ **Supervisor** – Process control for queues and services  
 ✅ **Nginx** – Production-grade web server  
