@@ -3,8 +3,8 @@
 cd /var/www/html
 
 # Ensure environment directory exists
-if [ ! -d "environment" ]; then
-    echo "Error: environment/ directory not found."
+if [ ! -d "docker/environment" ]; then
+    echo "Error: docker/environment/ directory not found."
     exit 1
 fi
 
@@ -19,12 +19,12 @@ if [ ! -f artisan ]; then
 
     # Copy the environment file if specified
     if [ -n "$APP_ENV_FILE" ]; then
-        echo "Copying $APP_ENV_FILE from environment directory..."
-        cp environment/$APP_ENV_FILE /tmp/laravel/.env
+        echo "Copying $APP_ENV_FILE from docker/environment directory..."
+        cp docker/environment/$APP_ENV_FILE /tmp/laravel/.env
     else
         echo "No APP_ENV_FILE specified, using existing .env.local"
-        echo "Copying .env.local from environment directory..."
-        cp environment/.env.local /tmp/laravel/.env
+        echo "Copying .env.local from docker/environment directory..."
+        cp docker/environment/.env.local /tmp/laravel/.env
     fi
     
     php artisan config:clear
@@ -35,12 +35,12 @@ if [ ! -f artisan ]; then
 else
     echo "Laravel already exists. Skipping creation."
     if [ -n "$APP_ENV_FILE" ]; then
-        echo "Copying $APP_ENV_FILE from environment directory..."
-        cp environment/$APP_ENV_FILE ./.env
+        echo "Copying $APP_ENV_FILE from docker/environment directory..."
+        cp docker/environment/$APP_ENV_FILE ./.env
     else
         echo "No APP_ENV_FILE specified, using existing .env.local"
-        echo "Copying .env.local from environment directory..."
-        cp environment/.env.local ./.env
+        echo "Copying .env.local from docker/environment directory..."
+        cp docker/environment/.env.local ./.env
     fi
 fi
 
