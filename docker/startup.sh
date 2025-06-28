@@ -48,4 +48,8 @@ echo "Setting correct permissions for the storage directory..."
 chown -R www-data:www-data /var/www/html/storage
 chmod -R 775 /var/www/html/storage
 
+echo "Ensuring logs/supervisor directory exists..."
+mkdir -p /var/www/html/logs/supervisor
+chown -R www-data:www-data /var/www/html/logs
+
 exec "$@"
