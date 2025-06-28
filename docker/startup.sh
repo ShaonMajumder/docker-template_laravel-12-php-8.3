@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export COMPOSER_CACHE_DIR=/composer/cache
+
 cd /var/www/html
 
 # Ensure environment directory exists

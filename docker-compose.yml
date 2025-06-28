@@ -5,14 +5,16 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
-    image: laravel-app
-    container_name: laravel-app
+    image: sadhana-app
+    container_name: sadhana-app
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html  # Mount whole project
       - vendor:/var/www/html/vendor # Except vendor
+      - composer_cache:/composer/cache
     environment:
+      - COMPOSER_CACHE_DIR=/composer/cache
       - APP_ENV=${APP_ENV}
       - APP_ENV_FILE=.env.${APP_ENV}
     depends_on:
@@ -24,7 +26,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: laravel-nginx
+    container_name: sadhana-nginx
     restart: unless-stopped
     ports:
       - "8000:80"
@@ -36,24 +38,24 @@ services:
     networks:
       - laravel
 
-  postgres:
-    image: postgres:15
-    container_name: laravel-postgres
-    restart: unless-stopped
-    environment:
-      POSTGRES_DB: ${DB_DATABASE}
-      POSTGRES_USER: ${DB_USERNAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-    ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    networks:
-      - laravel
+  # postgres:
+  #   image: postgres:15
+  #   container_name: sadhana-postgres
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_DB: ${DB_DATABASE}
+  #     POSTGRES_USER: ${DB_USERNAME}
+  #     POSTGRES_PASSWORD: ${DB_PASSWORD}
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   networks:
+  #     - laravel
 
   mysql:
     image: mysql:5.7
-    container_name: laravel-mysql
+    container_name: sadhana-mysql
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
@@ -69,7 +71,7 @@ services:
 
   redis:
     image: redis:alpine
-    container_name: laravel-redis
+    container_name: sadhana-redis
     restart: unless-stopped
     ports:
       - "6379:6379"
@@ -97,7 +99,7 @@ services:
   #   build:
   #     context: .
   #     dockerfile: docker/Dockerfile
-  #   container_name: laravel-queue
+  #   container_name: sadhana-queue
   #   command: php artisan queue:work --sleep=3 --tries=3
   #   depends_on:
   #     - redis
@@ -109,6 +111,7 @@ volumes:
   dbdata:
   pgdata:
   vendor:
+  composer_cache:
 
 networks:
   laravel:
