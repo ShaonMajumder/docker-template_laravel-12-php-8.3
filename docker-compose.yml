@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
-    image: myapp-app
-    container_name: myapp-app
+    image: laravel-app
+    container_name: laravel-app
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
@@ -26,7 +26,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: myapp-nginx
+    container_name: laravel-nginx
     restart: unless-stopped
     ports:
       - "8000:80"
@@ -40,7 +40,7 @@ services:
 
   # postgres:
   #   image: postgres:15
-  #   container_name: myapp-postgres
+  #   container_name: laravel-postgres
   #   restart: unless-stopped
   #   environment:
   #     POSTGRES_DB: ${DB_DATABASE}
@@ -55,7 +55,7 @@ services:
 
   mysql:
     image: mysql:5.7
-    container_name: myapp-mysql
+    container_name: laravel-mysql
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
@@ -71,7 +71,7 @@ services:
 
   redis:
     image: redis:alpine
-    container_name: myapp-redis
+    container_name: laravel-redis
     restart: unless-stopped
     ports:
       - "6379:6379"
@@ -99,7 +99,7 @@ services:
   #   build:
   #     context: .
   #     dockerfile: docker/Dockerfile
-  #   container_name: myapp-queue
+  #   container_name: laravel-queue
   #   command: php artisan queue:work --sleep=3 --tries=3
   #   depends_on:
   #     - redis
